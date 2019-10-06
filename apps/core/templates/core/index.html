@@ -6,7 +6,12 @@
 {% endblock %}
 
 {% block main %}
-  <h1> Seja bem vindo </h1>
+  <h1> Seja bem vindo  {{ usuario.funcionario.nome }}  </h1>
+  {% if usuario.funcionario.empresa %}
+    <a href="" class=" btn"> Editar </a>
 
+  {% else %}
+    <a href="empresas/novo" class=" btn"> Criar </a>
+  {% endif %}
   <a href="{% url 'logout' %}" class=" btn btn-danger"> Logout </a>
 {% endblock %}

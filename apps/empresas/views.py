@@ -1,3 +1,17 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views.generic.edit import CreateView
+from .models import empresa
 
-# Create your views here.
+
+
+class CriarEmpresa(CreateView):
+    model = empresa
+    fields = ['nome']
+
+    def form_valid(self,form):
+        objeto = form.save()
+        funcionario = self.request.user.funcionario
+        funcionario.empresa = objeto
+        funcionario.save()
+        return HttpResponse("Empresa cadastrada")

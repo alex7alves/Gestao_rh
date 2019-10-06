@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Criar empresa
+
+{% endblock %}
+
+{% block main %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-outline-primary"> Salvar </button>
+
+
+  </form>
+{% endblock %}
