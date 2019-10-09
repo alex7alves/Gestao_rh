@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home
+from .views import ListarFuncionarios
 urlpatterns = [
-    path('',home),
+    path('listar',ListarFuncionarios.as_view(), name="Listar_Funcionarios"),
 ]
