@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView , DeleteView
 from .models import Funcionario
 
 class ListarFuncionarios(ListView):
@@ -16,3 +17,8 @@ class ListarFuncionarios(ListView):
 class EditarFuncionario(UpdateView):
     model = Funcionario
     fields = ['nome','departamentos']
+
+
+class DeletarFuncionario(DeleteView):
+    model = Funcionario
+    success_url = reverse_lazy("Listar_Funcionarios")

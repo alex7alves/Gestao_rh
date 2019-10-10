@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Deletar funcionario
+{% endblock %}
+
+{% block main %}
+  <form method="post">
+    {% csrf_token %}
+    <h1> Tem certeza que deseja deletar o funcionario {{obj.funcionario.nome}}</h1>
+    {{ form }}
+    <button type="submit" class="btn btn-outline-primary"> Deletar </button>
+  </form>
+{% endblock %}
